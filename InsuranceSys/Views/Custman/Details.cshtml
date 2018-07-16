@@ -1,0 +1,174 @@
+﻿@model InsuranceSys.Models.ViewModels.CustomerViewModel
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        <h4>客戶資料明細</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.CustomerMViewModel.CustCountry)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.CustomerMViewModel.CustCountry)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.CustomerMViewModel.ROCID)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.CustomerMViewModel.ROCID)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.CustomerMViewModel.PASSPOART_CODE)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.CustomerMViewModel.PASSPOART_CODE)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.CustomerMViewModel.PASSPOART_NO)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.CustomerMViewModel.PASSPOART_NO)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.CustomerMViewModel.Sex)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.CustomerMViewModel.Sex)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.CustomerMViewModel.CustNameLocal)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.CustomerMViewModel.CustNameLocal)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.CustomerMViewModel.CustNameEn)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.CustomerMViewModel.CustNameEn)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.CustomerDViewModel.PhoneHomeAreaCode)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.CustomerDViewModel.PhoneHomeAreaCode)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.CustomerDViewModel.PhoneHome)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.CustomerDViewModel.PhoneHome)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.CustomerDViewModel.PhoneHomeExt)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.CustomerDViewModel.PhoneHomeExt)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.CustomerDViewModel.PhoneCorpAreaCode)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.CustomerDViewModel.PhoneCorpAreaCode)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.CustomerDViewModel.PhoneCorp)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.CustomerDViewModel.PhoneCorp)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.CustomerDViewModel.PhoneCorpExt)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.CustomerDViewModel.PhoneCorpExt)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.CustomerDViewModel.PhoneMobileATW)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.CustomerDViewModel.PhoneMobileATW)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.CustomerDViewModel.AddressPermanent)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.CustomerDViewModel.AddressPermanent)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.CustomerDViewModel.AddressPermanentZipcode)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.CustomerDViewModel.AddressPermanentZipcode)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.CustomerDViewModel.AddressCorrespondence)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.CustomerDViewModel.AddressCorrespondence)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.CustomerDViewModel.AddressCorrespondenceZipcode)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.CustomerDViewModel.AddressCorrespondenceZipcode)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.CustomerDViewModel.Email)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.CustomerDViewModel.Email)
+            </dd>
+    
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.CustomerMViewModel.Custid }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>

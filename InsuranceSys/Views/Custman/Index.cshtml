@@ -1,0 +1,146 @@
+﻿@model IEnumerable<InsuranceSys.Models.ViewModels.CustomerViewModel>
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CustomerMViewModel.CustCountry)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CustomerMViewModel.ROCID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CustomerMViewModel.PASSPOART_CODE)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CustomerMViewModel.PASSPOART_NO)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CustomerMViewModel.Sex)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CustomerMViewModel.CustNameLocal)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CustomerMViewModel.CustNameEn)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CustomerDViewModel.PhoneHomeAreaCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CustomerDViewModel.PhoneHome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CustomerDViewModel.PhoneHomeExt)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CustomerDViewModel.PhoneCorpAreaCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CustomerDViewModel.PhoneCorp)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CustomerDViewModel.PhoneCorpExt)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CustomerDViewModel.PhoneMobileATW)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CustomerDViewModel.AddressPermanent)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CustomerDViewModel.AddressPermanentZipcode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CustomerDViewModel.AddressCorrespondence)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CustomerDViewModel.AddressCorrespondenceZipcode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CustomerDViewModel.Email)
+            </th>
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CustomerMViewModel.CustCountry)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CustomerMViewModel.ROCID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CustomerMViewModel.PASSPOART_CODE)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CustomerMViewModel.PASSPOART_NO)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CustomerMViewModel.Sex)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CustomerMViewModel.CustNameLocal)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CustomerMViewModel.CustNameEn)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CustomerDViewModel.PhoneHomeAreaCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CustomerDViewModel.PhoneHome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CustomerDViewModel.PhoneHomeExt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CustomerDViewModel.PhoneCorpAreaCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CustomerDViewModel.PhoneCorp)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CustomerDViewModel.PhoneCorpExt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CustomerDViewModel.PhoneMobileATW)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CustomerDViewModel.AddressPermanent)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CustomerDViewModel.AddressPermanentZipcode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CustomerDViewModel.AddressCorrespondence)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CustomerDViewModel.AddressCorrespondenceZipcode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CustomerDViewModel.Email)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.CustomerMViewModel.Custid }) |
+                @Html.ActionLink("Details", "Details", new { id=item.CustomerMViewModel.Custid }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.CustomerMViewModel.Custid })
+            </td>
+        </tr>
+    }
+    
+    </table>
+</body>
+</html>

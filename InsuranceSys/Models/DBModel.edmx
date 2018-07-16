@@ -1,0 +1,254 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="ISModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="CustomerD">
+          <Key>
+            <PropertyRef Name="Custid" />
+          </Key>
+          <Property Name="Custid" Type="int" Nullable="false" />
+          <Property Name="PhoneHomeAreaCode" Type="char" MaxLength="5" />
+          <Property Name="PhoneHome" Type="char" MaxLength="10" />
+          <Property Name="PhoneHomeExt" Type="char" MaxLength="5" />
+          <Property Name="PhoneCorpAreaCode" Type="char" MaxLength="5" />
+          <Property Name="PhoneCorp" Type="char" MaxLength="10" />
+          <Property Name="PhoneCorpExt" Type="char" MaxLength="5" />
+          <Property Name="PhoneMobileATW" Type="char" MaxLength="10" />
+          <Property Name="AddressPermanent" Type="nvarchar" MaxLength="200" />
+          <Property Name="AddressPermanentZipcode" Type="char" MaxLength="10" />
+          <Property Name="AddressCorrespondence" Type="nvarchar" MaxLength="200" />
+          <Property Name="AddressCorrespondenceZipcode" Type="char" MaxLength="10" />
+          <Property Name="Email" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="CustomerM">
+          <Key>
+            <PropertyRef Name="Custid" />
+          </Key>
+          <Property Name="Custid" Type="int" Nullable="false" />
+          <Property Name="CustCountry" Type="char" MaxLength="2" />
+          <Property Name="ROCID" Type="varchar" MaxLength="10" />
+          <Property Name="PASSPOART_CODE" Type="char" MaxLength="3" />
+          <Property Name="PASSPOART_NO" Type="varchar" MaxLength="30" />
+          <Property Name="Sex" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="CustNameLocal" Type="nvarchar" MaxLength="50" />
+          <Property Name="CustNameEn" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="SysCode">
+          <Key>
+            <PropertyRef Name="CodeId" />
+          </Key>
+          <Property Name="CodeId" Type="char" MaxLength="8" Nullable="false" />
+          <Property Name="CodeKind" Type="char" MaxLength="20" Nullable="false" />
+          <Property Name="CodeMsg" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="CodeMsgLang" Type="char" MaxLength="8" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserInfoM">
+          <Key>
+            <PropertyRef Name="LoginID" />
+          </Key>
+          <Property Name="LoginID" Type="char" MaxLength="30" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="1024" Nullable="false" />
+          <Property Name="Salt" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="EmailAddress" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="PhoneCorpAreaCode" Type="char" MaxLength="5" />
+          <Property Name="PhoneCorp" Type="char" MaxLength="10" />
+          <Property Name="PhoneCorpExt" Type="char" MaxLength="5" />
+          <Property Name="Department" Type="char" MaxLength="10" Nullable="false" />
+          <Property Name="SysRole" Type="char" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <Association Name="fk_customerd_customerd">
+          <End Role="CustomerD" Type="Self.CustomerD" Multiplicity="1" />
+          <End Role="CustomerD1" Type="Self.CustomerD" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="CustomerD">
+              <PropertyRef Name="Custid" />
+            </Principal>
+            <Dependent Role="CustomerD1">
+              <PropertyRef Name="Custid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ISModelStoreContainer">
+          <EntitySet Name="CustomerD" EntityType="Self.CustomerD" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CustomerM" EntityType="Self.CustomerM" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SysCode" EntityType="Self.SysCode" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserInfoM" EntityType="Self.UserInfoM" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="fk_customerd_customerd" Association="Self.fk_customerd_customerd">
+            <End Role="CustomerD" EntitySet="CustomerD" />
+            <End Role="CustomerD1" EntitySet="CustomerD" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ISModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="CustomerD">
+          <Key>
+            <PropertyRef Name="Custid" />
+          </Key>
+          <Property Name="Custid" Type="Int32" Nullable="false" />
+          <Property Name="PhoneHomeAreaCode" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
+          <Property Name="PhoneHome" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="PhoneHomeExt" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
+          <Property Name="PhoneCorpAreaCode" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
+          <Property Name="PhoneCorp" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="PhoneCorpExt" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
+          <Property Name="PhoneMobileATW" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="AddressPermanent" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="AddressPermanentZipcode" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="AddressCorrespondence" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="AddressCorrespondenceZipcode" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="CustomerD1" Relationship="Self.fk_customerd_customerd" FromRole="CustomerD" ToRole="CustomerD1" />
+          <NavigationProperty Name="CustomerD2" Relationship="Self.fk_customerd_customerd" FromRole="CustomerD1" ToRole="CustomerD" />
+        </EntityType>
+        <EntityType Name="CustomerM">
+          <Key>
+            <PropertyRef Name="Custid" />
+          </Key>
+          <Property Name="Custid" Type="Int32" Nullable="false" />
+          <Property Name="CustCountry" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+          <Property Name="ROCID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="PASSPOART_CODE" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
+          <Property Name="PASSPOART_NO" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Sex" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="CustNameLocal" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CustNameEn" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="SysCode">
+          <Key>
+            <PropertyRef Name="CodeId" />
+          </Key>
+          <Property Name="CodeId" Type="String" MaxLength="8" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="CodeKind" Type="String" MaxLength="20" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="CodeMsg" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CodeMsgLang" Type="String" MaxLength="8" FixedLength="true" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserInfoM">
+          <Key>
+            <PropertyRef Name="LoginID" />
+          </Key>
+          <Property Name="LoginID" Type="String" MaxLength="30" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Salt" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="EmailAddress" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PhoneCorpAreaCode" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
+          <Property Name="PhoneCorp" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="PhoneCorpExt" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
+          <Property Name="Department" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="SysRole" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+        </EntityType>
+        <Association Name="fk_customerd_customerd">
+          <End Role="CustomerD" Type="Self.CustomerD" Multiplicity="1" />
+          <End Role="CustomerD1" Type="Self.CustomerD" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="CustomerD">
+              <PropertyRef Name="Custid" />
+            </Principal>
+            <Dependent Role="CustomerD1">
+              <PropertyRef Name="Custid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CustomerD" EntityType="Self.CustomerD" />
+          <EntitySet Name="CustomerM" EntityType="Self.CustomerM" />
+          <EntitySet Name="SysCode" EntityType="Self.SysCode" />
+          <EntitySet Name="UserInfoM" EntityType="Self.UserInfoM" />
+          <AssociationSet Name="fk_customerd_customerd" Association="Self.fk_customerd_customerd">
+            <End Role="CustomerD" EntitySet="CustomerD" />
+            <End Role="CustomerD1" EntitySet="CustomerD" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ISModelStoreContainer" CdmEntityContainer="DBEntities">
+          <EntitySetMapping Name="CustomerD">
+            <EntityTypeMapping TypeName="ISModel.CustomerD">
+              <MappingFragment StoreEntitySet="CustomerD">
+                <ScalarProperty Name="Custid" ColumnName="Custid" />
+                <ScalarProperty Name="PhoneHomeAreaCode" ColumnName="PhoneHomeAreaCode" />
+                <ScalarProperty Name="PhoneHome" ColumnName="PhoneHome" />
+                <ScalarProperty Name="PhoneHomeExt" ColumnName="PhoneHomeExt" />
+                <ScalarProperty Name="PhoneCorpAreaCode" ColumnName="PhoneCorpAreaCode" />
+                <ScalarProperty Name="PhoneCorp" ColumnName="PhoneCorp" />
+                <ScalarProperty Name="PhoneCorpExt" ColumnName="PhoneCorpExt" />
+                <ScalarProperty Name="PhoneMobileATW" ColumnName="PhoneMobileATW" />
+                <ScalarProperty Name="AddressPermanent" ColumnName="AddressPermanent" />
+                <ScalarProperty Name="AddressPermanentZipcode" ColumnName="AddressPermanentZipcode" />
+                <ScalarProperty Name="AddressCorrespondence" ColumnName="AddressCorrespondence" />
+                <ScalarProperty Name="AddressCorrespondenceZipcode" ColumnName="AddressCorrespondenceZipcode" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CustomerM">
+            <EntityTypeMapping TypeName="ISModel.CustomerM">
+              <MappingFragment StoreEntitySet="CustomerM">
+                <ScalarProperty Name="Custid" ColumnName="Custid" />
+                <ScalarProperty Name="CustCountry" ColumnName="CustCountry" />
+                <ScalarProperty Name="ROCID" ColumnName="ROCID" />
+                <ScalarProperty Name="PASSPOART_CODE" ColumnName="PASSPOART_CODE" />
+                <ScalarProperty Name="PASSPOART_NO" ColumnName="PASSPOART_NO" />
+                <ScalarProperty Name="Sex" ColumnName="Sex" />
+                <ScalarProperty Name="CustNameLocal" ColumnName="CustNameLocal" />
+                <ScalarProperty Name="CustNameEn" ColumnName="CustNameEn" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SysCode">
+            <EntityTypeMapping TypeName="ISModel.SysCode">
+              <MappingFragment StoreEntitySet="SysCode">
+                <ScalarProperty Name="CodeId" ColumnName="CodeId" />
+                <ScalarProperty Name="CodeKind" ColumnName="CodeKind" />
+                <ScalarProperty Name="CodeMsg" ColumnName="CodeMsg" />
+                <ScalarProperty Name="CodeMsgLang" ColumnName="CodeMsgLang" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserInfoM">
+            <EntityTypeMapping TypeName="ISModel.UserInfoM">
+              <MappingFragment StoreEntitySet="UserInfoM">
+                <ScalarProperty Name="LoginID" ColumnName="LoginID" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Salt" ColumnName="Salt" />
+                <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+                <ScalarProperty Name="PhoneCorpAreaCode" ColumnName="PhoneCorpAreaCode" />
+                <ScalarProperty Name="PhoneCorp" ColumnName="PhoneCorp" />
+                <ScalarProperty Name="PhoneCorpExt" ColumnName="PhoneCorpExt" />
+                <ScalarProperty Name="Department" ColumnName="Department" />
+                <ScalarProperty Name="SysRole" ColumnName="SysRole" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="無" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

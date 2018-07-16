@@ -1,0 +1,180 @@
+﻿@model InsuranceSys.Models.ViewModels.CustomerViewModel
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Delete</title>
+</head>
+<body>
+    <h3>Are you sure you want to delete this?</h3>
+    <div>
+        <h4>CustomerViewModels</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.CustCountry)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.CustCountry)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.ROCID)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.ROCID)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.PASSPOART_CODE)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.PASSPOART_CODE)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.PASSPOART_NO)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.PASSPOART_NO)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Sex)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Sex)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.CustNameLocal)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.CustNameLocal)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.CustNameEn)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.CustNameEn)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.PhoneHomeAreaCode)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.PhoneHomeAreaCode)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.PhoneHome)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.PhoneHome)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.PhoneHomeExt)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.PhoneHomeExt)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.PhoneCorpAreaCode)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.PhoneCorpAreaCode)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.PhoneCorp)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.PhoneCorp)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.PhoneCorpExt)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.PhoneCorpExt)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.PhoneMobileATW)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.PhoneMobileATW)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.AddressPermanent)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.AddressPermanent)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.AddressPermanentZipcode)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.AddressPermanentZipcode)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.AddressCorrespondence)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.AddressCorrespondence)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.AddressCorrespondenceZipcode)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.AddressCorrespondenceZipcode)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Email)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Email)
+            </dd>
+    
+        </dl>
+    
+        @using (Html.BeginForm()) {
+            @Html.AntiForgeryToken()
+    
+            <div class="form-actions no-color">
+                <input type="submit" value="Delete" class="btn btn-default" /> |
+                @Html.ActionLink("Back to List", "Index")
+            </div>
+        }
+    </div>
+</body>
+</html>

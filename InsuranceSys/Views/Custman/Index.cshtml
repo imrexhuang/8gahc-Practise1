@@ -1,4 +1,4 @@
-﻿@model IEnumerable<InsuranceSys.Models.CustmanViewModel>
+﻿@model IEnumerable<InsuranceSys.Models.StoreCustmanViewModel>
 
 
 <!DOCTYPE html>
@@ -15,61 +15,61 @@
     <table class="table">
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.CustomerViewModel.CustCountry)
+                @Html.DisplayNameFor(model => model.StoreCustomerViewModel.CustCountry)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.CustomerViewModel.ROCID)
+                @Html.DisplayNameFor(model => model.StoreCustomerViewModel.ROCID)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.CustomerViewModel.PASSPOART_CODE)
+                @Html.DisplayNameFor(model => model.StoreCustomerViewModel.PASSPOART_CODE)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.CustomerViewModel.PASSPOART_NO)
+                @Html.DisplayNameFor(model => model.StoreCustomerViewModel.PASSPOART_NO)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.CustomerViewModel.Sex)
+                @Html.DisplayNameFor(model => model.StoreCustomerViewModel.Sex)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.CustomerViewModel.CustNameLocal)
+                @Html.DisplayNameFor(model => model.StoreCustomerViewModel.CustNameLocal)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.CustomerViewModel.CustNameEn)
+                @Html.DisplayNameFor(model => model.StoreCustomerViewModel.CustNameEn)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.CustomerDetailViewModel.PhoneHomeAreaCode)
+                @Html.DisplayNameFor(model => model.StoreCustomerDetailViewModel.PhoneHomeAreaCode)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.CustomerDetailViewModel.PhoneHome)
+                @Html.DisplayNameFor(model => model.StoreCustomerDetailViewModel.PhoneHome)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.CustomerDetailViewModel.PhoneHomeExt)
+                @Html.DisplayNameFor(model => model.StoreCustomerDetailViewModel.PhoneHomeExt)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.CustomerDetailViewModel.PhoneCorpAreaCode)
+                @Html.DisplayNameFor(model => model.StoreCustomerDetailViewModel.PhoneCorpAreaCode)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.CustomerDetailViewModel.PhoneCorp)
+                @Html.DisplayNameFor(model => model.StoreCustomerDetailViewModel.PhoneCorp)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.CustomerDetailViewModel.PhoneCorpExt)
+                @Html.DisplayNameFor(model => model.StoreCustomerDetailViewModel.PhoneCorpExt)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.CustomerDetailViewModel.PhoneMobileATW)
+                @Html.DisplayNameFor(model => model.StoreCustomerDetailViewModel.PhoneMobileATW)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.CustomerDetailViewModel.AddressPermanent)
+                @Html.DisplayNameFor(model => model.StoreCustomerDetailViewModel.AddressPermanent)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.CustomerDetailViewModel.AddressPermanentZipcode)
+                @Html.DisplayNameFor(model => model.StoreCustomerDetailViewModel.AddressPermanentZipcode)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.CustomerDetailViewModel.AddressCorrespondence)
+                @Html.DisplayNameFor(model => model.StoreCustomerDetailViewModel.AddressCorrespondence)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.CustomerDetailViewModel.AddressCorrespondenceZipcode)
+                @Html.DisplayNameFor(model => model.StoreCustomerDetailViewModel.AddressCorrespondenceZipcode)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.CustomerDetailViewModel.Email)
+                @Html.DisplayNameFor(model => model.StoreCustomerDetailViewModel.Email)
             </th>
             <th></th>
         </tr>
@@ -77,66 +77,66 @@
     @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.CustomerViewModel.CustCountry)
+                @Html.DisplayFor(modelItem => item.StoreCustomerViewModel.CustCountry)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.CustomerViewModel.ROCID)
+                @Html.DisplayFor(modelItem => item.StoreCustomerViewModel.ROCID)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.CustomerViewModel.PASSPOART_CODE)
+                @Html.DisplayFor(modelItem => item.StoreCustomerViewModel.PASSPOART_CODE)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.CustomerViewModel.PASSPOART_NO)
+                @Html.DisplayFor(modelItem => item.StoreCustomerViewModel.PASSPOART_NO)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.CustomerViewModel.Sex)
+                @Html.DisplayFor(modelItem => item.StoreCustomerViewModel.Sex)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.CustomerViewModel.CustNameLocal)
+                @Html.DisplayFor(modelItem => item.StoreCustomerViewModel.CustNameLocal)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.CustomerViewModel.CustNameEn)
+                @Html.DisplayFor(modelItem => item.StoreCustomerViewModel.CustNameEn)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.CustomerDetailViewModel.PhoneHomeAreaCode)
+                @Html.DisplayFor(modelItem => item.StoreCustomerDetailViewModel.PhoneHomeAreaCode)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.CustomerDetailViewModel.PhoneHome)
+                @Html.DisplayFor(modelItem => item.StoreCustomerDetailViewModel.PhoneHome)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.CustomerDetailViewModel.PhoneHomeExt)
+                @Html.DisplayFor(modelItem => item.StoreCustomerDetailViewModel.PhoneHomeExt)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.CustomerDetailViewModel.PhoneCorpAreaCode)
+                @Html.DisplayFor(modelItem => item.StoreCustomerDetailViewModel.PhoneCorpAreaCode)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.CustomerDetailViewModel.PhoneCorp)
+                @Html.DisplayFor(modelItem => item.StoreCustomerDetailViewModel.PhoneCorp)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.CustomerDetailViewModel.PhoneCorpExt)
+                @Html.DisplayFor(modelItem => item.StoreCustomerDetailViewModel.PhoneCorpExt)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.CustomerDetailViewModel.PhoneMobileATW)
+                @Html.DisplayFor(modelItem => item.StoreCustomerDetailViewModel.PhoneMobileATW)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.CustomerDetailViewModel.AddressPermanent)
+                @Html.DisplayFor(modelItem => item.StoreCustomerDetailViewModel.AddressPermanent)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.CustomerDetailViewModel.AddressPermanentZipcode)
+                @Html.DisplayFor(modelItem => item.StoreCustomerDetailViewModel.AddressPermanentZipcode)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.CustomerDetailViewModel.AddressCorrespondence)
+                @Html.DisplayFor(modelItem => item.StoreCustomerDetailViewModel.AddressCorrespondence)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.CustomerDetailViewModel.AddressCorrespondenceZipcode)
+                @Html.DisplayFor(modelItem => item.StoreCustomerDetailViewModel.AddressCorrespondenceZipcode)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.CustomerDetailViewModel.Email)
+                @Html.DisplayFor(modelItem => item.StoreCustomerDetailViewModel.Email)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id=item.CustomerViewModel.Custid }) |
-                @Html.ActionLink("Details", "Details", new { id=item.CustomerViewModel.Custid }) |
-                @Html.ActionLink("Delete", "Delete", new { id=item.CustomerViewModel.Custid })
+                @Html.ActionLink("Edit", "Edit", new { id=item.StoreCustomerViewModel.Custid }) |
+                @Html.ActionLink("Details", "Details", new { id=item.StoreCustomerViewModel.Custid }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.StoreCustomerViewModel.Custid })
             </td>
         </tr>
     }

@@ -184,6 +184,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DBModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\StoreCustmanViewModel.cs" />
     <Compile Include="Models\SysCode.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>

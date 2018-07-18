@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using InsuranceSys.Models;
 using InsuranceSys.Repository;
+using static InsuranceSys.Models.StoreCustmanViewModel;
 
 namespace InsuranceSys.Service
 {
@@ -19,16 +20,23 @@ namespace InsuranceSys.Service
             _customerDetailRepository = new Repository<CustomerDetail>(unitOfWork);
         }
 
-        public List<CustmanViewModel> ListCustomerFirstPage()
+        //public List<CustmanViewModel> ListCustomerFirstPage()
+        public List<StoreCustmanViewModel> ListCustomerFirstPage()
         {
+            //return new List<CustmanViewModel>(); //回傳空的List，開發時沒資料庫使用
+
             using (var db = new ModelContext())
             {
-                var cust = (from cm in db.Customer
+                    List<StoreCustmanViewModel> cust = new List<StoreCustmanViewModel>();
+
+                    cust = (from cm in db.Customer
                             join cd in db.CustomerDetail
                             on cm.Custid equals cd.Custid
-                            select new CustmanViewModel
+                            //select new CustmanViewModel
+                            select new StoreCustmanViewModel
                             {
-                                CustomerViewModel = new Customer
+                                //CustomerViewModel = new Customer
+                                StoreCustomerViewModel = new StoreCustomer
                                 {
                                     Custid = cm.Custid,
                                     CustCountry = cm.CustCountry,
@@ -39,7 +47,8 @@ namespace InsuranceSys.Service
                                     CustNameLocal = cm.CustNameLocal,
                                     CustNameEn = cm.CustNameEn,
                                 },
-                                CustomerDetailViewModel = new CustomerDetail
+                                //CustomerDetailViewModel = new CustomerDetail
+                                StoreCustomerDetailViewModel = new StoreCustomerDetail
                                 {
                                     Custid = cd.Custid,
                                     PhoneHomeAreaCode = cd.PhoneHomeAreaCode,
@@ -57,12 +66,13 @@ namespace InsuranceSys.Service
                                 }
 
                             }).Take(20).ToList();
-                  return cust.ToList();
+                return cust.ToList();
             }
 
         }
 
-        public CustmanViewModel ListCustomerDetails(int? custid)
+
+        public StoreCustmanViewModel ListCustomerDetails(int? custid)
         {
 
             using (var db = new ModelContext())
@@ -71,9 +81,9 @@ namespace InsuranceSys.Service
                             join cd in db.CustomerDetail
                             on cm.Custid equals cd.Custid
                             where cm.Custid == custid
-                            select new CustmanViewModel
+                            select new StoreCustmanViewModel
                             {
-                                CustomerViewModel = new Customer
+                                StoreCustomerViewModel = new StoreCustomer
                                 {
                                     Custid = cm.Custid,
                                     CustCountry = cm.CustCountry,
@@ -84,7 +94,7 @@ namespace InsuranceSys.Service
                                     CustNameLocal = cm.CustNameLocal,
                                     CustNameEn = cm.CustNameEn,
                                 },
-                                CustomerDetailViewModel = new CustomerDetail
+                                StoreCustomerDetailViewModel = new StoreCustomerDetail
                                 {
                                     Custid = cd.Custid,
                                     PhoneHomeAreaCode = cd.PhoneHomeAreaCode,
@@ -171,6 +181,12 @@ namespace InsuranceSys.Service
                 Email = cust.CustomerDetailViewModel.Email
             });
 
+        }
+
+
+        public void EditCustomerData(int id, CustmanViewModel cust)
+        {
+            //var oldData = _orderRepository.GetSingle(d => d.Id == id);
         }
 
     }

@@ -25,11 +25,9 @@ namespace InsuranceSys.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<CustomerD> CustomerD { get; set; }
-        public virtual DbSet<CustomerM> CustomerM { get; set; }
         public virtual DbSet<SysCode> SysCode { get; set; }
-        public virtual DbSet<UserInfoM> UserInfoM { get; set; }
-
-        public System.Data.Entity.DbSet<InsuranceSys.Models.ViewModels.CustomerViewModel> CustomerViewModels { get; set; }
+        public virtual DbSet<Customer> Customer { get; set; }
+        public virtual DbSet<CustomerDetail> CustomerDetail { get; set; }
+        public virtual DbSet<UserInfo> UserInfo { get; set; }
     }
 }

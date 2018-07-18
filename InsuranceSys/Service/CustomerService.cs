@@ -4,24 +4,31 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using InsuranceSys.Models;
-using InsuranceSys.Models.ViewModels;
+using InsuranceSys.Repository;
 
 namespace InsuranceSys.Service
 {
     public class CustomerService
     {
-        public List<CustomerViewModel> ListCustomerFirstPage()
+        private readonly IRepository<Customer> _customerRepository;
+        private readonly IRepository<CustomerDetail> _customerDetailRepository;
+
+        public CustomerService(IUnitOfWork unitOfWork)
         {
-            using (var db = new DBEntities())
+            _customerRepository = new Repository<Customer>(unitOfWork);
+            _customerDetailRepository = new Repository<CustomerDetail>(unitOfWork);
+        }
+
+        public List<CustmanViewModel> ListCustomerFirstPage()
+        {
+            using (var db = new ModelContext())
             {
-                var cust = (from cd in db.CustomerD
-                            join cm in db.CustomerM
-                            on cd.Custid equals cm.Custid
-                            // https://stackoverflow.com/questions/10548505/linq-select-and-convert-entites-to-viewmodels
-                            //select new  //這樣會有CS0029錯誤，無法轉型
-                            select new CustomerViewModel
+                var cust = (from cm in db.Customer
+                            join cd in db.CustomerDetail
+                            on cm.Custid equals cd.Custid
+                            select new CustmanViewModel
                             {
-                                CustomerMViewModel = new CustomerMViewModel
+                                CustomerViewModel = new Customer
                                 {
                                     Custid = cm.Custid,
                                     CustCountry = cm.CustCountry,
@@ -32,7 +39,7 @@ namespace InsuranceSys.Service
                                     CustNameLocal = cm.CustNameLocal,
                                     CustNameEn = cm.CustNameEn,
                                 },
-                                CustomerDViewModel = new CustomerDViewModel
+                                CustomerDetailViewModel = new CustomerDetail
                                 {
                                     Custid = cd.Custid,
                                     PhoneHomeAreaCode = cd.PhoneHomeAreaCode,
@@ -47,27 +54,26 @@ namespace InsuranceSys.Service
                                     AddressCorrespondence = cd.AddressCorrespondence,
                                     AddressCorrespondenceZipcode = cd.AddressCorrespondenceZipcode,
                                     Email = cd.Email
-                                }                         
+                                }
 
                             }).Take(20).ToList();
-                             // }).Take(20).OrderBy(x => x.CustomerMViewModel.Custid).ToList();  //會有錯誤 System.NotSupportedException: LINQ to Entities
-
-                return cust.ToList();
+                  return cust.ToList();
             }
+
         }
 
-        public CustomerViewModel ListCustomerDetails(int? custid)
+        public CustmanViewModel ListCustomerDetails(int? custid)
         {
 
-            using (var db = new DBEntities())
+            using (var db = new ModelContext())
             {
-                var cust = (from cd in db.CustomerD
-                            join cm in db.CustomerM
-                            on cd.Custid equals cm.Custid
+                var cust = (from cm in db.Customer
+                            join cd in db.CustomerDetail
+                            on cm.Custid equals cd.Custid
                             where cm.Custid == custid
-                            select new CustomerViewModel
+                            select new CustmanViewModel
                             {
-                                CustomerMViewModel = new CustomerMViewModel
+                                CustomerViewModel = new Customer
                                 {
                                     Custid = cm.Custid,
                                     CustCountry = cm.CustCountry,
@@ -78,7 +84,7 @@ namespace InsuranceSys.Service
                                     CustNameLocal = cm.CustNameLocal,
                                     CustNameEn = cm.CustNameEn,
                                 },
-                                CustomerDViewModel = new CustomerDViewModel
+                                CustomerDetailViewModel = new CustomerDetail
                                 {
                                     Custid = cd.Custid,
                                     PhoneHomeAreaCode = cd.PhoneHomeAreaCode,
@@ -99,14 +105,72 @@ namespace InsuranceSys.Service
             }
         }
 
-        public void CreateCustomerData(CustomerViewModel custmodel)
+        public void CreatePOC1(Customer cust)
         {
-            using (var db = new DBEntities())
+            _customerRepository.Create(new Customer
             {
-                db.CustomerM.Add(custmodel.CustomerMViewModel);
-                db.CustomerD.Add(custmodel.CustomerDViewModel);
-                db.SaveChanges();
-            }
+                Custid = cust.Custid,
+                CustCountry = cust.CustCountry,
+                ROCID = cust.ROCID,
+                PASSPOART_CODE = cust.PASSPOART_CODE,
+                PASSPOART_NO = cust.PASSPOART_NO,
+                Sex = cust.Sex,
+                CustNameLocal = cust.CustNameLocal,
+                CustNameEn = cust.CustNameEn,
+            });
+        }
+
+        public void CreatePOC2(CustomerDetail cust)
+        {
+            _customerDetailRepository.Create(new CustomerDetail
+            {
+                Custid = cust.Custid,
+                PhoneHomeAreaCode = cust.PhoneHomeAreaCode,
+                PhoneHome = cust.PhoneHome,
+                PhoneHomeExt = cust.PhoneHomeExt,
+                PhoneCorpAreaCode = cust.PhoneCorpAreaCode,
+                PhoneCorp = cust.PhoneCorp,
+                PhoneCorpExt = cust.PhoneCorpExt,
+                PhoneMobileATW = cust.PhoneMobileATW,
+                AddressPermanent = cust.AddressPermanent,
+                AddressPermanentZipcode = cust.AddressPermanentZipcode,
+                AddressCorrespondence = cust.AddressCorrespondence,
+                AddressCorrespondenceZipcode = cust.AddressCorrespondenceZipcode,
+                Email = cust.Email
+            });
+        }
+
+        public void CreateCustomerData(CustmanViewModel cust)
+        {
+            _customerRepository.Create(new Customer
+            {
+                Custid = cust.CustomerViewModel.Custid,
+                CustCountry = cust.CustomerViewModel.CustCountry,
+                ROCID = cust.CustomerViewModel.ROCID,
+                PASSPOART_CODE = cust.CustomerViewModel.PASSPOART_CODE,
+                PASSPOART_NO = cust.CustomerViewModel.PASSPOART_NO,
+                Sex = cust.CustomerViewModel.Sex,
+                CustNameLocal = cust.CustomerViewModel.CustNameLocal,
+                CustNameEn = cust.CustomerViewModel.CustNameEn,
+            });
+
+            _customerDetailRepository.Create(new CustomerDetail
+            {
+                Custid = cust.CustomerDetailViewModel.Custid,
+                PhoneHomeAreaCode = cust.CustomerDetailViewModel.PhoneHomeAreaCode,
+                PhoneHome = cust.CustomerDetailViewModel.PhoneHome,
+                PhoneHomeExt = cust.CustomerDetailViewModel.PhoneHomeExt,
+                PhoneCorpAreaCode = cust.CustomerDetailViewModel.PhoneCorpAreaCode,
+                PhoneCorp = cust.CustomerDetailViewModel.PhoneCorp,
+                PhoneCorpExt = cust.CustomerDetailViewModel.PhoneCorpExt,
+                PhoneMobileATW = cust.CustomerDetailViewModel.PhoneMobileATW,
+                AddressPermanent = cust.CustomerDetailViewModel.AddressPermanent,
+                AddressPermanentZipcode = cust.CustomerDetailViewModel.AddressPermanentZipcode,
+                AddressCorrespondence = cust.CustomerDetailViewModel.AddressCorrespondence,
+                AddressCorrespondenceZipcode = cust.CustomerDetailViewModel.AddressCorrespondenceZipcode,
+                Email = cust.CustomerDetailViewModel.Email
+            });
+
         }
 
     }
